@@ -1,5 +1,6 @@
 <template>
-  <div v-for="item in items" :key="item.item_id">
+  <div v-if="items">
+  <div class="items" v-for="item in items" :key="item.item_id">
     <router-link :to ="`/item/${item.item_id}`" class="text-dec">
       <img :src=item.img_url alt="Oops this image could not be found"/>
       <h3>{{ item.item_name }}</h3>
@@ -7,6 +8,10 @@
       <h4>£{{ item.price/20 }}</h4>
       <h6>FREE Delivery by NC-Amazon</h6>
     </router-link>
+  </div>
+  </div>
+  <div v-else>
+    <h1 class="else">Loading...</h1>
   </div>
 </template>
 
@@ -36,7 +41,7 @@ import { fetchItems } from '../api';
 </script>
 
 <style scoped>
-  div  {
+  .items {
     color: black;
     display: inline-block;
     padding: 20px;
@@ -56,6 +61,10 @@ import { fetchItems } from '../api';
 
   .text-dec {
     text-decoration: none;
+    color: black;
+  }
+
+  .else {
     color: black;
   }
 
