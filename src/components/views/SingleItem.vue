@@ -1,4 +1,5 @@
 <template>
+  <div v-if="item">
    <div class="item">
       <img :src=item.img_url alt="Oops this image could not be found"/>
       <h3>{{ item.item_name }}</h3>
@@ -14,6 +15,10 @@
         <button>Buy Now</button>
       </div>
     </div>
+  </div>
+  <div class = "else" v-else>
+    <h1>Loading...</h1>
+  </div>
 
 
 </template>
@@ -28,7 +33,7 @@ export default {
     props: ["id"],
 
     setup(props) {
-    let item = ref(null)
+    let item = ref("https://thumbs.dreamstime.com/z/website-information-loading-circle-icon-website-information-loading-circle-isolated-icon-134206627.jpg")
 
     const fetchItems = async () => {
       const data = await fetchItemById(props.id) 
@@ -75,6 +80,10 @@ export default {
     border-radius: 25px;
     background-color: rgb(230, 230, 22);
     cursor: pointer;
+  }
+
+  .else {
+    color: black;
   }
 
 
