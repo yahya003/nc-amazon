@@ -9,7 +9,7 @@ import NavigationBar from "./components/NavigationBar.vue"
   <router-view></router-view>
 </template>
 
-<style scoped>
+<style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
