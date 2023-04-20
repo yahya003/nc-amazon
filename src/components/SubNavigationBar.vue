@@ -21,10 +21,11 @@
     background-color: rgb(54,69,79);
     text-align: center;
   }
-  nav router-link {
+  nav a {
     color: white;
     text-decoration: none;
     cursor: pointer;
     margin: 30px;
+    
   }   
 </style>
