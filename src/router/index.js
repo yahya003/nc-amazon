@@ -21,17 +21,20 @@ const routes = [
     {
         path: "/wishlist",
         name: "Wish List",
-        component: WishList
+        component: WishList.
+        props: true
     },
     {
         path: "/basket",
         name: "Your Basket",
-        component: YourBasket
+        component: YourBasket,
+        props: true
     },
     {
         path: "/orders",
         name: "Your orders",
-        component: YourOrders
+        component: YourOrders,
+        props: true
     },
 
 ]
