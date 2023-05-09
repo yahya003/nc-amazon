@@ -16,6 +16,7 @@ import NavigationBar from "./components/NavigationBar.vue"
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: white;
+  max-width: 1000px;
 }
 
 </style>

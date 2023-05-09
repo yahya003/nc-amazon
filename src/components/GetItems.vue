@@ -30,7 +30,6 @@ import { fetchItems } from '../api';
     
     mounted() {
     fetchItems().then((response) => {
-      console.log(response)
       this.items = response
     })
   },
