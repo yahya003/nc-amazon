@@ -8,7 +8,7 @@
       <h4>£{{ item.price/20 }}</h4>
       <h6>FREE Delivery by NC-Amazon</h6>
       <div>
-        <button>Add to Basket</button>
+        <button @click="addToBasket">Add to Basket</button>
         <br>
         <button>Add to Wishlist</button>
         <br>
@@ -26,7 +26,7 @@
 
 <script>
 import { ref, watchEffect } from 'vue';
-import { fetchItemById } from '../../api'
+import { fetchBasket, fetchItemById, postToBasket } from '../../api'
 
 export default {
     name: "SingleItem",
@@ -34,19 +34,24 @@ export default {
 
     setup(props) {
     let item = ref("https://thumbs.dreamstime.com/z/website-information-loading-circle-icon-website-information-loading-circle-isolated-icon-134206627.jpg")
-
+    let basket = ref(null)
     const fetchItems = async () => {
       const data = await fetchItemById(props.id) 
       return data;
+    };
+
+    const addToBasket = async () => {
+      await postToBasket("Paul-R", props.id)
     };
 
     watchEffect(async () => {
       await fetchItems(props.id).then((res) => {
         item.value = res;
       });
+ 
     })
 
-    return { item, fetchItemById }
+    return { item, fetchItemById, postToBasket, basket, addToBasket  }
     }}
 
 
