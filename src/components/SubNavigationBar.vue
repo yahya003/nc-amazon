@@ -5,13 +5,16 @@
         <router-link to ="/orders">Orders</router-link>
         <router-link to = "/basket">Basket</router-link>
         <router-link to = "/postItem">Post an Item</router-link>
-    </nav>
+      </nav>
   </div>
 </template>
 
 <script>
+
+
    export default {
-    name: "SubNavigationBar"
+    name: "SubNavigationBar",
+ 
    }
 </script>
 

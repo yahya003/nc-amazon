@@ -1,5 +1,16 @@
 <template>
+  
   <div v-if="items">
+    <div>
+
+      <label>Category:
+          <select>
+              <option value="All" >All</option>
+              <option v-for="eachCategory in categories" :value=eachCategory.category_name > {{ eachCategory.category_name }}</option>
+          </select>
+        </label>
+    </div>
+    
   <div class="items" v-for="item in items" :key="item.item_id">
     <router-link :to ="`/item/${item.item_id}`" class="text-dec">
       <img :src=item.img_url alt="Oops this image could not be found"/>
@@ -16,22 +27,28 @@
 </template>
 
 <script>
-
+import { fetchCategories } from '../api';
 import { fetchItems } from '../api';
 
   export default {
     name: "GetItems",
     props: [],
-    data() {
+  
+    data () {
       return {
+        categories: null,
         items: null
       }
     },
-    
-    mounted() {
+
+   mounted() {
     fetchItems().then((response) => {
       this.items = response
     })
+    fetchCategories().then((response) => {
+      console.log(response)
+        this.categories = response
+      })
   },
   
 }
@@ -57,6 +74,9 @@ import { fetchItems } from '../api';
     height: 320px;
   }
 
+  div label {
+    color: black;
+  }
   .text-dec {
     text-decoration: none;
     color: black;
@@ -64,6 +84,10 @@ import { fetchItems } from '../api';
 
   .else {
     color: black;
+  }
+
+  select {
+    margin-top: 20px;
   }
 
 </style>

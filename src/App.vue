@@ -14,6 +14,7 @@ import SubNavigationBar from "./components/SubNavigationBar.vue";
 <style>
 #app {
   text-align: center;
+  color: white;
 }
 
 </style>
