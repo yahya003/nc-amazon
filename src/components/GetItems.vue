@@ -49,13 +49,12 @@ import { fetchItems } from '../api';
     margin-top: 20px;
     cursor: pointer;
     text-align: center;
-    background-color: cornsilk;
+    background-color: whitesmoke;
   }
 
   div div img {
     width: 300px;
     height: 320px;
-    
   }
 
   .text-dec {

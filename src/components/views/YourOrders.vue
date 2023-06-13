@@ -21,7 +21,9 @@
     </div>
     </section>
    </div>
-   
+   <div v-else-if="!orders">
+     <h1>Loading...</h1>
+  </div>   
    <div v-else>
     <h3>You do not currently have any items in your basket</h3>
    </div>
