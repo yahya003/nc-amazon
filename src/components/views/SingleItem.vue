@@ -16,8 +16,11 @@
       </div>
     </div>
   </div>
-  <div class = "else" v-else>
+  <div v-else-if="!item">
     <h1>Loading...</h1>
+  </div>
+  <div class = "else" v-else>
+    <h1>There are no available items</h1>
   </div>
 
 
@@ -48,8 +51,8 @@ export default {
       await orderItem("Paul-R", props.id)
     };
 
-    watchEffect(async () => {
-      await fetchItems(props.id).then((res) => {
+    watchEffect(() => {
+      fetchItems(props.id).then((res) => {
         item.value = res;
       });
  

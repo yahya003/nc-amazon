@@ -1,5 +1,5 @@
 <template>
-  <div v-if="basket"  >
+  <div v-if="basket" >
     <section class="basket flex-col">
       <h2>Basket:</h2>
       <div v-for="item in basket" :key="item.item_id">
@@ -22,6 +22,9 @@
     </div>
     </section>
    </div>
+   <div v-else-if="!basket">
+     <h1>Loading...</h1>
+  </div>  
    <div v-else>
     <h3>You do not currently have any items in your basket</h3>
    </div>
@@ -35,12 +38,11 @@ export default {
     name: "YourBasket",
     data() {
         return {
-            basket: []
+            basket: null
         }
     },
     mounted() {
     fetchBasket("Paul-R").then((response) => {
-      console.log(response)
       this.basket = response
     })
   },
