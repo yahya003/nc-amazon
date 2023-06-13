@@ -24,7 +24,7 @@ import { fetchItems } from '../api';
     props: [],
     data() {
       return {
-        items: []
+        items: null
       }
     },
     

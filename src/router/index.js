@@ -2,7 +2,6 @@
 import { createRouter, createWebHistory} from "vue-router";
 import HomePage from "../components/views/HomePage.vue"
 import SingleItem from "../components/views/SingleItem.vue"
-import WishList from "../components/views/WishList.vue"
 import YourBasket from "../components/views/YourBasket.vue"
 import YourOrders from "../components/views/YourOrders.vue"
 
@@ -16,12 +15,6 @@ const routes = [
         path: "/item/:id",
         name: "Single Item",
         component: SingleItem,
-        props: true
-    },
-    {
-        path: "/wishlist",
-        name: "Wish List",
-        component: WishList.
         props: true
     },
     {
