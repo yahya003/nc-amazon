@@ -4,6 +4,7 @@ import HomePage from "../components/views/HomePage.vue"
 import SingleItem from "../components/views/SingleItem.vue"
 import YourBasket from "../components/views/YourBasket.vue"
 import YourOrders from "../components/views/YourOrders.vue"
+import PostItem from "../components/views/PostItem.vue"
 
 const routes = [
     {
@@ -27,6 +28,12 @@ const routes = [
         path: "/orders",
         name: "Your orders",
         component: YourOrders,
+        props: true
+    },
+    {
+        path: "/postItem",
+        name: "Post Item",
+        component: PostItem,
         props: true
     },
 
