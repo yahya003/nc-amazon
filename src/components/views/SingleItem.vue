@@ -12,7 +12,7 @@
         <br>
         <button>Add to Wishlist</button>
         <br>
-        <button>Buy Now</button>
+        <button @click="addToOrders">Buy Now</button>
       </div>
     </div>
   </div>
@@ -26,7 +26,7 @@
 
 <script>
 import { ref, watchEffect } from 'vue';
-import { fetchBasket, fetchItemById, postToBasket } from '../../api'
+import { fetchBasket, fetchItemById, orderItem, postToBasket } from '../../api'
 
 export default {
     name: "SingleItem",
@@ -43,6 +43,10 @@ export default {
     const addToBasket = async () => {
       await postToBasket("Paul-R", props.id)
     };
+    
+    const addToOrders = async () => {
+      await orderItem("Paul-R", props.id)
+    };
 
     watchEffect(async () => {
       await fetchItems(props.id).then((res) => {
@@ -51,7 +55,7 @@ export default {
  
     })
 
-    return { item, fetchItemById, postToBasket, basket, addToBasket  }
+    return { item, fetchItemById, postToBasket, basket, addToBasket, addToOrders  }
     }}
 
 

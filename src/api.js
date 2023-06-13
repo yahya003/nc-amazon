@@ -34,7 +34,7 @@ export const postItem = (item) => {
   });
 };
 
-export const deleteItem = (id) => {
+export const deleteItemFromBasket = (id) => {
   return myApi.delete(`/items/${id}`);
 };
 

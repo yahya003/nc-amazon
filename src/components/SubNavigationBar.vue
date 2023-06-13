@@ -2,9 +2,9 @@
   <div>
     <nav>
         <router-link to ="/">Home</router-link>
-        <router-link to ="/orders">Your Orders</router-link>
-        <router-link to = "/wishlist">Wish List</router-link>
+        <router-link to ="/orders">Orders</router-link>
         <router-link to = "/basket">Basket</router-link>
+        <router-link to = "/postItem">Post an Item</router-link>
     </nav>
   </div>
 </template>
