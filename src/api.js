@@ -29,9 +29,10 @@ export const fetchItemById = (id) => {
 };
 
 export const postItem = (item) => {
-  return myApi.post(`/items`, item).then((res) => {
-    return res;
-  });
+  console.log(item)
+  //return myApi.post(`/items`, item).then((res) => {
+    //return res;
+  //});
 };
 
 export const deleteItemFromBasket = (id) => {
