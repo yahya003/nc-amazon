@@ -64,7 +64,7 @@ export const fetchBasket = (user) => {
 };
 
 export const fetchItemsByCategory = (category_name) => {
-  return myApi.get(`/items?${category_name}`).then(({ data: { items } }) => {
+  return myApi.get(`/items?category_name=${category_name}`).then(({ data: { items } }) => {
     return items;
   });
 };

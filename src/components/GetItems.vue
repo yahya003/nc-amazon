@@ -4,10 +4,11 @@
     <div>
 
       <label>Category:
-          <select>
-              <option value="All" >All</option>
+          <select v-model="chosenCategory">
+              <option disabled selected>All</option>
               <option v-for="eachCategory in categories" :value=eachCategory.category_name > {{ eachCategory.category_name }}</option>
           </select>
+          <button @click="searchByCategory(chosenCategory)">Search</button>
         </label>
     </div>
     
@@ -27,8 +28,9 @@
 </template>
 
 <script>
-import { fetchCategories } from '../api';
+import { fetchCategories, fetchItemsByCategory } from '../api';
 import { fetchItems } from '../api';
+
 
   export default {
     name: "GetItems",
@@ -37,8 +39,17 @@ import { fetchItems } from '../api';
     data () {
       return {
         categories: null,
-        items: null
+        items: null,
+        chosenCategory: "All"
       }
+    },
+
+    methods: {
+       searchByCategory: async function (currentCategory) {
+        const data = await fetchItemsByCategory(currentCategory)
+        this.items = data 
+      },
+      
     },
 
    mounted() {
@@ -46,7 +57,6 @@ import { fetchItems } from '../api';
       this.items = response
     })
     fetchCategories().then((response) => {
-      console.log(response)
         this.categories = response
       })
   },
@@ -86,8 +96,17 @@ import { fetchItems } from '../api';
     color: black;
   }
 
+
+
   select {
     margin-top: 20px;
+    padding: 4px;
+
+  }
+
+  button {
+    padding: 4px;
+    margin-left: 20px;
   }
 
 </style>
