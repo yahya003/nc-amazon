@@ -11,28 +11,31 @@ export const fetchUsers = () => {
 };
 
 export const fetchCategories = () => {
+  // Done
   return myApi.get("/categories").then(({ data: { categories } }) => {
     return categories;
   });
 };
 
 export const fetchItems = () => {
+  // Done
   return myApi.get("/items").then(({ data: { items } }) => {
     return items;
   });
 };
 
 export const fetchItemById = (id) => {
+  // Done
   return myApi.get(`/items/${id}`).then(({ data: { item } }) => {
     return item;
   });
 };
 
 export const postItem = (item) => {
-  console.log(item)
-  //return myApi.post(`/items`, item).then((res) => {
-    //return res;
-  //});
+  // Done
+  return myApi.post(`/items`, item).then((res) => {
+    return res;
+  });
 };
 
 export const deleteItemFromBasket = (id) => {
@@ -40,17 +43,20 @@ export const deleteItemFromBasket = (id) => {
 };
 
 export const orderItem = (user, item_id) => {
+  // Done
   return myApi.post(`/users/${user}/orders`, { item_id }).then((res) => {
     return res;
   });
 };
 export const fetchOrders = (user) => {
+  // Done
   return myApi.get(`/users/${user}/orders`).then(({ data: { items } }) => {
     return items;
   });
 };
 
 export const postToBasket = (user, item_id) => {
+  // Done
   return myApi
     .post(`/users/${user}/basket`, { item_id })
     .then(({ data: { items } }) => {
@@ -59,12 +65,14 @@ export const postToBasket = (user, item_id) => {
 };
 
 export const fetchBasket = (user) => {
+  // Done
   return myApi.get(`/users/${user}/basket`).then(({ data: { items } }) => {
     return items;
   });
 };
 
 export const fetchItemsByCategory = (category_name) => {
+  // Done
   return myApi.get(`/items?category_name=${category_name}`).then(({ data: { items } }) => {
     return items;
   });

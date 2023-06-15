@@ -3,9 +3,10 @@
     <div>
       <form>
         <input required v-model="itemName" placeholder="Item Name"/>
+        <input required  v-model="description" placeholder="Item Description"/>
         <input required  v-model="itemPrice" placeholder="Item Price"/>
         <input required v-model="itemURL" placeholder="Item Image URL"/>
-        <button type = "button" @click="listItem(itemName, itemPrice, itemURL)">Submit</button>
+        <button type = "button" @click="listItem(itemName, itemPrice, itemURL, description)">Submit</button>
       </form>
     </div>
 </template>
@@ -21,17 +22,19 @@ import { postItem } from '../../api';
         itemName: null,
         itemPrice: null,
         itemURL: null,
+        description: null,
       }
     },
 
     methods: {
-      listItem:  async function (itemName, itemPrice, itemURL ) {
+      listItem:  async function (itemName, itemPrice, itemURL, description ) {
         const item = {
-          itemName: itemName,
-          itemPrice: itemPrice,
-          itemURL: itemURL
+          item_name: itemName,
+          price: itemPrice,
+          description: description,
+          img_url: itemURL,
+          category_name: "Clothing"
         }
-        console.log("here")
         await postItem(item)
       }
     }
